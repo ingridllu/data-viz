@@ -18,46 +18,57 @@
 </head>
 
 <body>
-  <header>
-    <!--     NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Link1</a>
-          <a class="nav-item nav-link" href="#">Link2</a>
-        </div>
-      </div>
-    </nav>
-    <!--     END NAVBAR -->
-  </header>
+  
   <main role="main" class="container">
-    <h1>Title</h1>
+    <h1>Fertility Rate data visualizations</h1>
 
 
     <!--     D3 VISUAL -->
-    <h3>D3.js Visual</h3>
-    <p>Here's some intro information about your website. It should introduce the theme. What's the big idea? All of your
-      charts or visuals need to be contextualized - what are we looking at? Where did the data come from? What can we
-      conclude?</p>
+    <h3>World Fertility Rate Map</h3>
+    <p>below is a map that represents the world fertility rate from 1990-2020. Slide the slider below to change the year and hover your mouse over a country to see it's fertility rate. Yellow represents a lower fertility rate and red a higher one. Countries in white don't have any available data.</p>
+    <h4 id="currentYear">1990</h4>
     <div id="myChart" class="svg-container"></div>
-
+   <!--  slider -->
+    <div class="slidecontainer">
+      <input type="range" min="1" max="11" value="1" class="slider" id="myRange">
+    </div>
     <!--     P5 VISUAL -->
-    <h3>p5.js Visual</h3>
-    <p>This is an example of how you would embed a canvas for p5.js visuals.</p>
+    <h3>Fertility rate of 2020</h3>
+    <p>below is a visual representation of what fertility rate was for all countries in 2020. The babies represent how many children per woman there were on average.</p>
     <div id="myP5-container">
       <div id="myP5"></div>
+      <h4>Analysis/Additional info</h4>
+    <p>The first visualization represents how fertility rates have changed in the world's countries from 1990 to 2020. From sliding the slider, it can be seen how fertility rates as a whole have decreased in the last 30 years. The average world fertility rate is about 2.3, the lowest it has ever been. Although this number is high enough to sustain and grow our population, when looking at individual countries, we see many battling record-breaking lows. A nation is estimated to need a fertility rate of about 2.1 to sustain its population. When looking at South Korea and the U.S. specifically, we see both countries with numbers not large enough to maintain the population size. 
+</p>
+      <p>South Korea has the lowest fertility rate in the world, at .78 births per woman. South Korea has the lowest fertility rate in the world, at .78 births per woman. Many factors, like marriage rates, housing prices, and work culture, can explain this. According to the last ten years of available data, marriage rates are down more than 35% because South Koreans prioritize work over starting a family. A big reason for this is how the price of living and specifically housing prices, have increased. This price hike means a worker in Seoul with a yearly income of 36 million won, equivalent to about 27,000 USD, will take 36 years to purchase an apartment in the city, double the 18 years it would have taken in 2004. Work culture or “workism” in South Korea has grown very severe, and many women are unwilling to have children because it would cause them to miss work for months, risking their positions and the hard-earned respect they have in their workplaces. This severe decrease in fertility rate will negatively affect their economy because it will cause a high number of elderly people with a low number of young people to support the workforce and the economy.
+</p>
+      <p>The United States fertility rate is also at a record-breaking low, at 1.64 births per woman. The U.S. Census Bureau projects that by 2034, people 65 and older will outnumber those under 18 for the first time in U.S. history. Although this number alone is too low to maintain our population, because of high immigration rates, our population size is still growing. Our low birth rate is also directly related to work culture and more women in the workforce. It is said that having a first child at an older age has been associated with a positive impact on a woman’s wages and career path.
+</p>
+      <h5>Citations</h5>
+      <p>Ahn, Ashley. “South Korea has the world's lowest fertility rate, a struggle with lessons for us all.” NPR, 19 March 2023, https://www.npr.org/2023/03/19/1163341684/south-korea-fertility-rate. Accessed 11 May 2023.
+</p>
+      <p>Chappell, Bill. “U.S. Birthrate Fell By 4% In 2020, Hitting Another Record Low.” NPR, 5 May 2021, https://www.npr.org/2021/05/05/993817146/u-s-birth-rate-fell-by-4-in-2020-hitting-another-record-low. Accessed 11 May 2023.
+</p>
+      <p>“Fertility rate, total (births per woman) | Data.” World Bank Data, https://data.worldbank.org/indicator/SP.DYN.TFRT.IN. Accessed 11 May 2023.
+</p>
+      <p>Hansen, Claire. “U.S. Birth Rates Continue to Fall.” USNews.com, 10 January 2023, https://www.usnews.com/news/health-news/articles/2023-01-10/u-s-birth-rates-continue-to-fall. Accessed 11 May 2023.
+</p>
+      <p>Kearney, Melissa, et al. “The Mystery of the Declining U.S. Birth Rate.” Econofact, 15 February 2022, https://econofact.org/the-mystery-of-the-declining-u-s-birth-rate. Accessed 11 May 2023.
+</p>
+      <p>“Seoul's average apartment price jumps nearly fourfold in 18 yrs: civic group.” Yonhap News, 19 July 2022, https://en.yna.co.kr/view/AEN20220719005400315. Accessed 11 May 2023.
+</p>
+
     </div>
   </main>
 
   <!--   SCRIPTS -->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
   <!--   your scripts -->
+  <script src="js/Family.js"></script>
+
   <script src="p5_script.js"></script>
   <script src="d3_script.js"></script>
 
